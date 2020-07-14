@@ -2,7 +2,6 @@
 	require_once('database.php');
 	$db = new loc();
 ?>
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Travelers' Timer</title>
