@@ -1,69 +1,69 @@
 <?php
-	require_once('database.php');
-	$db = new loc();
+    require_once('database.php');
+    $db = new loc();
 ?>
 <html>
 <head>
-	<title>Travelers' Timer</title>
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Travelers' Timer</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="home.css">
 </head>
 <body>
-	<div class="container">
-		<div class="phone">
-			<label class="phonename">TABLET</label>
-			<div class="inner">
-				<div class="screen">
-					<h3 class="title">Travellers' Timer</h3>
-					<div class="elements" id="elements">
-						<div class="chatlists">
-							<?php
-							    $data = $db->getData();
-							    ?>
-							    <h4 style="margin-left: 10px;">Destination: 
-							   		<em id="dest"><?php echo $data['destination']?></em>
-							    </h4>
-							    <p>Distance: <em><?php echo $data['distance']."Km"?></em></p>
-							    <p>Car Drive: <em><?php 
-							    	if($data['time'] < 0.5){
-							    		echo "Less than 30minutes";
-							    	}else {
-							    		echo ceil($data['time'])."Hr(s)";
-							    	}
-							    	?></em></p>
-							    <p id="lat1" style="display: none;"><?php echo $data['lat1']?></p>
-							    <p id="lng1" style="display: none;"><?php echo $data['lng1']?></p>
-							    <p id="lat2" style="display: none;"><?php echo $data['lat2']?></p>
-							    <p id="lng2" style="display: none;"><?php echo $data['lng2']?></p>
-							    <?php
-							?>
-							<p id="result"></p>
-							<div id="map" style="width:100%; height:500px"></div> 
-						</div>
-						<div class="chatbox">
-							<table><tr>
-								<input type="text" id="textautocomplete" placeholder="Enter the address you are traveling to"/></tr>
-								<tr><input type="button" onclick="requestPosition()" value="Update Your location" style="width:232px;"><button>Load new T-time</button></tr>
-							</table>
-						</div>	
+   <div class="container">
+	<div class="phone">
+		<label class="phonename">TABLET</label>
+		<div class="inner">
+			<div class="screen">
+				<h3 class="title">Travellers' Timer</h3>
+				<div class="elements" id="elements">
+					<div class="chatlists">
+						<?php
+						    $data = $db->getData();
+						    ?>
+						    <h4 style="margin-left: 10px;">Destination: 
+								<em id="dest"><?php echo $data['destination']?></em>
+						    </h4>
+						    <p>Distance: <em><?php echo $data['distance']."Km"?></em></p>
+						    <p>Car Drive: <em><?php 
+							if($data['time'] < 0.5){
+								echo "Less than 30minutes";
+							}else {
+								echo ceil($data['time'])."Hr(s)";
+							}
+							?></em></p>
+						    <p id="lat1" style="display: none;"><?php echo $data['lat1']?></p>
+						    <p id="lng1" style="display: none;"><?php echo $data['lng1']?></p>
+						    <p id="lat2" style="display: none;"><?php echo $data['lat2']?></p>
+						    <p id="lng2" style="display: none;"><?php echo $data['lng2']?></p>
+						    <?php
+						?>
+						<p id="result"></p>
+						<div id="map" style="width:100%; height:500px"></div> 
 					</div>
-				</div>
-			</div>
-			<table>
-				<td>
-					<tr>
-						<label class="mini"> </label>
-						<label class="center"> O </label>
-						<label class="back"> </label>
-					</tr>
-				</td>
-			</table>
-		</div>
-	</div>
+					<div class="chatbox">
+					    <table><tr>
+						<input type="text" id="textautocomplete" placeholder="Enter the address you are traveling to"/></tr>
+						<tr><input type="button" onclick="requestPosition()" value="Update Your location" style="width:232px;"><button>Load new T-time</button></tr>
+					    </table>
+					</div>	
+				   </div>
+			       </div>
+		           </div>
+		      <table>
+			  <td>
+			     <tr>
+				<label class="mini"> </label>
+				<label class="center"> O </label>
+				<label class="back"> </label>
+			     </tr>
+			</td>
+		   </table>
+	    </div>
+      </div>
 </body>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=yourapikey&libraries=places"></script>
 <script type="text/javascript">
