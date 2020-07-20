@@ -65,7 +65,7 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSJNo7EOsOytMt0h4sY6VpjIyrNwmynpg&libraries=places"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=yourapikey&libraries=places"></script>
 <script type="text/javascript">
 	var nav = null;
 
